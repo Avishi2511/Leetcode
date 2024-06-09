@@ -16,22 +16,23 @@ public:
         */
 
         int n = nums.size();
-        unordered_map<int, int> remainderMap;
-        int cumulativeSum = 0;
+        unordered_map<int, int> map;
+        int sum = 0;
         
-        remainderMap[0] = -1;
+        map[0] = -1;
         
-        for (int i = 0; i < n; i++) {
-            cumulativeSum += nums[i];
+        for (int i=0;i<n;i++) {
+            sum += nums[i];
             
-            int remainder = k == 0 ? cumulativeSum : cumulativeSum % k;
+            int r=k==0?sum:sum%k;
         
-            if (remainderMap.count(remainder)) {
-                if (i - remainderMap[remainder] > 1) {
+            if (map.count(r)) {
+                if (i - map[r] > 1) {
                     return true;
                 }
-            } else {
-                remainderMap[remainder] = i;
+            }
+            else {
+                map[r] = i;
             }
         }
         
