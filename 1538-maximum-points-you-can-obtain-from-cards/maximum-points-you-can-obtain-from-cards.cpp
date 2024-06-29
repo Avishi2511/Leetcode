@@ -1,26 +1,6 @@
 class Solution {
 public:
     int maxScore(vector<int>& cardPoints, int k) {
-        /*
-        int l=0, r=k-1;
-        int n=cardPoints.size();
-
-        for(int i=0;i<k;i++){
-            sum+=cardPoints[i];
-        }
-        l=n-1;
-        while(r!=-1){  
-            sum+=cardPoints[l];
-            sum-=cardPoints[r];
-            l--;
-            r--;
-            if(sum>max_sum){
-                max_sum=sum;
-            }
-        }
-        return max_sum;
-        */
-
         int lsum=0, rsum=0;
         int n=cardPoints.size();
 
@@ -42,7 +22,6 @@ public:
             }
             l--;
             r--;
-            cout<<sum<<endl;
         }
 
         return max_sum;
