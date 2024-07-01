@@ -18,10 +18,8 @@ public:
                 len++;
             }
             if(len>max_len)
-                    max_len = len;
+                max_len = len;
             if(map[ch]>1){
-                //if(len>max_len)
-                  //  max_len = len;
                 for(int j=l;j<i;j++){
                     len--;
                     if(s[j]==ch){
@@ -32,7 +30,6 @@ public:
                 }
                 len++;
             }
-            cout<<max_len<<endl;
         }
 
         return max_len;
