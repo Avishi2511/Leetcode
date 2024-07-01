@@ -20,8 +20,8 @@ public:
             if(len>max_len)
                     max_len = len;
             if(map[ch]>1){
-                if(len>max_len)
-                    max_len = len;
+                //if(len>max_len)
+                  //  max_len = len;
                 for(int j=l;j<i;j++){
                     len--;
                     if(s[j]==ch){
