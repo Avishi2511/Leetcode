@@ -46,13 +46,13 @@ public:
         */
 
         int min_price = prices[0];
-        int maxprof = 0;
+        int max_profit = 0;
 
         for(int i=1;i<prices.size();i++){
-            maxprof = max(maxprof,prices[i]-min_price);
+            max_profit = max(max_profit,prices[i]-min_price);
             min_price = min(prices[i],min_price);
         }
 
-        return maxprof;
+        return max_profit;
     }
 };
