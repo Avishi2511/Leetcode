@@ -4,11 +4,11 @@ public:
         unordered_map<string,int> map;
         vector<string> sol;
 
-        for (const string& str : arr) {
+        for (const string &str : arr) {
             map[str]++;
         }
 
-        for (const string& str : arr) {
+        for (const string &str : arr) {
             if (map[str] == 1) {
                 sol.push_back(str);
             }
