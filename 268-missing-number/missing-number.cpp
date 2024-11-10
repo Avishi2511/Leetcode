@@ -1,7 +1,7 @@
 class Solution {
 public:
     int missingNumber(vector<int>& nums) {
-        
+        /*
         if(nums.size()==1){
             if(nums[0]==0){
                 return 1;
@@ -18,9 +18,31 @@ public:
         }   
         
         return nums[nums.size()-1]+1;
+        */
+
+        //Brute
+        /*
+        sort(nums.begin(), nums.end());
+        for(int i=1;i<nums.size();i++){
+            int flag = 0;
+            for(int j=0;j<nums.size();j++){
+                if(nums[j]==i){
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag == 0) return i;
+        }
         
+        return 0;
+        */
 
+        //Optimal
+        int n = nums.size();
+        int sum = (n*(n+1))/2;
 
+        int sum2 = accumulate(nums.begin(), nums.end(), 0);
 
+        return sum- sum2;
     }
 };
