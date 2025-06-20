@@ -48,6 +48,7 @@ public:
         */
 
         //Brute
+        /*
         int n = nums.size();
         sort(nums.begin(), nums.end());
         for(int i=0;i<n;i++){
@@ -57,5 +58,15 @@ public:
         }
 
         return n;
+        */
+
+
+        //Optimized
+        int n = nums.size();
+
+        int sum1 = accumulate(nums.begin(), nums.end(), 0);
+        int sum2 = n*(n+1)/2;
+
+        return sum2-sum1;
     }
 };
