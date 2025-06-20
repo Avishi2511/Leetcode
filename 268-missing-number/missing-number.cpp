@@ -38,11 +38,24 @@ public:
         */
 
         //Optimal
+        /*
         int n = nums.size();
         int sum = (n*(n+1))/2;
 
         int sum2 = accumulate(nums.begin(), nums.end(), 0);
 
         return sum- sum2;
+        */
+
+        //Brute
+        int n = nums.size();
+        sort(nums.begin(), nums.end());
+        for(int i=0;i<n;i++){
+            if(i!=nums[i]){
+                return i;
+            }
+        }
+
+        return n;
     }
 };
