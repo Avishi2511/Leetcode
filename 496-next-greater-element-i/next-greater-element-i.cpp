@@ -2,6 +2,7 @@ class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         //Brute
+        /*
         vector<int> ans;
         for(int i=0;i<nums1.size();i++){
             bool found = false;
@@ -25,5 +26,34 @@ public:
         }
 
         return ans;
+        */
+
+    stack<int> st;
+    vector<int> ans;
+    int n1 = nums1.size();
+    int n2 = nums2.size();
+
+    for (int i = 0; i < n1; i++) {
+        int j = 0;
+        while (j < n2 && nums2[j] != nums1[i]) {
+            j++;
+        }
+        j++;
+        while (j < n2) {
+            if (nums2[j] > nums1[i]) {
+                st.push(nums2[j]);
+                break;
+            }
+            j++;
+        }
+
+        if (st.empty()) ans.push_back(-1);
+        else ans.push_back(st.top());
+
+        while (!st.empty()) st.pop();
+    }
+
+    return ans;
+
     }
 };
