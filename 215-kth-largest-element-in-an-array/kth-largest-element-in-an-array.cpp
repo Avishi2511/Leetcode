@@ -3,8 +3,10 @@ public:
     int findKthLargest(vector<int>& nums, int k) {
         
         //Naive
+        /*
         sort(nums.begin(), nums.end(), greater<int>());
         return nums[k-1];
+        */
 
         //Using heap
 
@@ -18,6 +20,7 @@ public:
         while(i!=k){
             klargest = pq.top();
             pq.pop();
+            i++;
         }
 
         return klargest;
