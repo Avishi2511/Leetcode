@@ -9,6 +9,7 @@ public:
                 int diff = nums[j] - nums[j-1];
                 if(diff==diff1) {
                     ans++;
+                    diff1 = diff;
                 }
                 else {
                     break;
