@@ -20,9 +20,9 @@ public:
         return dp[i] = max(pick, non_pick);
     }
     */
-
+/*
     int rob(vector<int>& nums) {
-        /*
+        
         int i = nums.size()-1;
         int n=nums.size();
         vector<int> dp(n+1, -1);
@@ -47,6 +47,8 @@ public:
         return dp[n-1];
         */
 
+/*
+        //Space optimised
         int n = nums.size();
         int prev = nums[0];
         int prev2 = 0;
@@ -64,4 +66,29 @@ public:
 
         return prev;
     }
+*/
+
+    int func(vector<int>& nums, int i, vector<int>& dp){
+        
+        if(i>=nums.size()){
+            return 0;
+        }
+
+        if(dp[i] != -1) return dp[i];
+
+        int pick = nums[i]+func(nums,i+2,dp);
+        int notpick = func(nums,i+1,dp);
+
+        dp[i] = max(pick, notpick);
+        return dp[i];
+
+    }
+
+    int rob(vector<int>& nums){
+
+        int n = nums.size();
+        vector<int> dp(n+1, -1);
+        return func(nums,0,dp);
+    }
+
 };
