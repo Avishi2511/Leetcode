@@ -30,11 +30,9 @@ public:
                 children++;
                 i++;
             }
-            cout<<j<<endl;
             j++;
         }
 
         return children;
-
     }
 };
