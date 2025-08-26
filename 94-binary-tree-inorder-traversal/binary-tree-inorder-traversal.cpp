@@ -12,6 +12,7 @@
 class Solution {
 public:
     /*
+    
     void inOrder(TreeNode *root, vector<int> &ans){
         
         if(root==NULL){
@@ -21,13 +22,13 @@ public:
         ans.push_back(root->val);
         inOrder(root->right, ans);
     }
-    */
+    
     vector<int> inorderTraversal(TreeNode* root) {
-        /*
+        
         vector<int> ans;
         inOrder(root, ans);
         return ans;
-        */
+        
 
         stack<TreeNode*> st;
         TreeNode *node = root;
@@ -49,6 +50,21 @@ public:
 
         return inorder;
     }
+    */
 
+    void inorder(TreeNode* root, vector<int> &ans){
+        if(root==NULL) return;
+
+        inorder(root->left,ans);
+        ans.push_back(root->val);
+        inorder(root->right,ans);
+    }
+
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> ans;
+        inorder(root, ans);
+        return ans;
+    }
+    
 
 };
