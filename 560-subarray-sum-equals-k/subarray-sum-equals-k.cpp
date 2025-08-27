@@ -20,7 +20,7 @@ public:
 
         return cnt;
         */
-
+        /*
 
         unordered_map<int,int> map;
         map[0] = 1;
@@ -35,7 +35,24 @@ public:
         }
 
         return cnt;
+        */
 
+
+
+        int subarr = 0;
+        
+        for(int i=0;i<nums.size();i++){
+            int sum = 0;
+            for(int j=i;j<nums.size();j++){
+                sum += nums[j];
+                if(sum==k){
+                    subarr++;
+                    //break;
+                }
+            }
+        }
+
+        return subarr;
 
     }
 };
