@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
+        /*
         vector<int> ans;
         for(int i=0;i<nums.size();i++){
             for(int j=i+1;j<nums.size();j++){
@@ -12,52 +13,23 @@ public:
         }
 
         return ans;
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        vector<int> sol;
-        int n= nums.size();
-        bool ans=false;
-        
-        for(int i=0;i<n;i++){
-            for(int j=i+1;j<n;j++){
-                if(nums[i]+nums[j]==target){
-                    sol.push_back(i);
-                    sol.push_back(j);
-                    break;
-                    ans=true;
-                }
-            }
-            if (ans==true)
-            break;
-        }
-        
-        return sol;
         */
+        vector<int> ans;
 
+        unordered_map<int,int> map;
 
-/*
-        map<int,int> map;
-        int n = nums.size();
-        for(int i=0;i<n;i++){
-            int a = nums[i];
-            int diff = target-a;
-            if(map.find(diff)!=map.end()){
-                return {map[diff], i};
+        for(int i=0;i<nums.size();i++){
+            int diff = target - nums[i];
+
+            if(map.count(diff)){
+                ans.push_back(map[diff]);
+                ans.push_back(i);
+                break;
             }
-            map[a] = i; 
+
+            map[nums[i]] = i;
         }
-        return {-1,1};
-        */
+
+        return ans;
     }
-    
 };
