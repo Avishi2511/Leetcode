@@ -7,7 +7,6 @@ public:
         for (int i = 1; i < nums.size(); i++) {
             if (nums[i] == nums[i-1]) return true;
         }
-        return false;
         /*
         unordered_set<int> mp;
         for(int i=0;i<nums.size();i++){
@@ -27,7 +26,6 @@ public:
             if(p.second>1) return true;
         }
         */
-
         return false;
     }
 };
