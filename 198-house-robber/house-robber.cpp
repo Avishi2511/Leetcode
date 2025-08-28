@@ -1,6 +1,46 @@
 class Solution {
 public:
     /*
+    int house(vector<int> &nums,int i,vector<int> &dp){
+        if(i<0) return 0;
+        if(i==0) return nums[0];
+
+        int notPick = house(nums,i-1,dp);
+        int pick = nums[i]+house(nums,i-2,dp);
+
+        return dp[i] = max(pick,notPick); 
+    }
+    */
+
+    int rob(vector<int>& nums){
+        int n = nums.size();
+        vector<int> dp(n+1);
+        //return house(nums,n-1,dp);
+        dp[0] = nums[0];
+        if(nums.size()>1) dp[1] = max(nums[0],nums[1]); 
+
+        for(int i=2;i<nums.size();i++){
+            int notPick = dp[i-1];
+            int pick = dp[i-2];
+
+            dp[i] = max(nums[i]+pick, notPick);
+        }
+
+        return dp[n-1];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     int house(vector<int> nums, int i, vector<int> dp){
         if(i==0){
             return nums[0];
@@ -68,6 +108,9 @@ public:
     }
 */
 
+
+// from 0->n
+    /*
     int func(vector<int>& nums, int i, vector<int>& dp){
         
         if(i>=nums.size()){
@@ -81,6 +124,7 @@ public:
 
         dp[i] = max(pick, notpick);
         return dp[i];
+        
 
     }
 
@@ -90,5 +134,6 @@ public:
         vector<int> dp(n+1, -1);
         return func(nums,0,dp);
     }
+    */
 
 };
