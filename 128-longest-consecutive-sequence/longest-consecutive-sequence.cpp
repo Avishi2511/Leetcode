@@ -21,28 +21,53 @@ public:
         return maxLen;
         */
 
-    if(nums.empty()) return 0;
+        /* My approach - TLE
+        if(nums.empty()) return 0;
 
-    unordered_map<int,int> mp;
-    for(int x : nums) mp[x]++;   
-
-    int maxLen = 0;
-
-    for(auto &p : mp){
-        int num = p.first;
-
-        if(mp.find(num - 1) == mp.end()){
-            int curr = num;
-            int len = 1;
-
-            while(mp.find(curr + 1) != mp.end()){
-                curr++;
-                len++;
-            }
-            maxLen = max(maxLen, len);
+        unordered_map<int,int> mp;
+        for(int i=0;i<nums.size();i++){
+            mp[nums[i]]++;
         }
-    }
 
-    return maxLen;
+        int maxLen = 0;
+        int len = 1;
+
+        for(int i=0;i<nums.size();i++){
+            int next = nums[i];
+
+            if(!mp.count(next-1)){
+                len = 1;
+                while(mp.count(next + 1)){
+                    next++;
+                    len++;
+                }
+                maxLen = max(maxLen, len);
+            }
+        }
+        return maxLen;
+        */
+
+        if(nums.empty()) return 0;
+
+        unordered_map<int,bool> mp;
+        for(int x : nums) mp[x] = true;
+
+        int maxLen = 0;
+
+        for(auto &p : mp){
+            int num = p.first;
+
+            if(mp.find(num - 1) == mp.end()){
+                int curr = num;
+                int len = 1;
+
+                while(mp.find(curr + 1) != mp.end()){
+                    curr++;
+                    len++;
+                }
+                maxLen = max(maxLen, len);
+            }
+        }
+        return maxLen;
     }
 };
