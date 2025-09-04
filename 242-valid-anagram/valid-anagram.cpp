@@ -27,10 +27,7 @@ public:
             if(mp.count(s[i])>=1){
                 mp[s[i]]--;
             }
-            else{
-                break;
-            }
-            cout<<mp[t[i]]<<endl;
+            else break;
         }
 
         for (auto &p : mp) {
