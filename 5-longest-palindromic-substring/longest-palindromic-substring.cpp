@@ -39,7 +39,7 @@ public:
                     }
                 }
 
-                if (palindrome && l>maxLen) {
+                if(palindrome && l>maxLen) {
                     maxLen = l;
                     startIndex = start;
                 }
