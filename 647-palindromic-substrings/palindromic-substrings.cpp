@@ -9,12 +9,17 @@ public:
     }
     int countSubstrings(string s) {
         int count = s.size();
+        vector<string> store;
         for(int i=0;i<s.size();i++){
             string str;
             for(int j=i+2;j<=s.size();j++){
                 str = s.substr(i,(j-i));
-                if(checkPalindrome(str)==true) count++;
+                store.push_back(str);
             }
+        }
+
+        for(int i=0;i<store.size();i++){
+            if(checkPalindrome(store[i])==true) count++;
         }
 
         return count;
