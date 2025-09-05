@@ -1,51 +1,59 @@
 class Solution {
 public:
+    //Brute - Gave TLE
+    /*
+    bool checkPalindrome(string s){
+        int n = s.size();
+        for(int i=0;i<=n/2;i++){
+            if(s[i]!=s[n-i-1]) return false;
+        }
+        return true;
+    }
+    */
     string longestPalindrome(string s) {
-
         /*
-        int n = s.size();
-        for(int l=n-1;l>=0;l--){ //String length
-            int start = 0;
-            int end = l-i;
-            while(start<end && start<n){
-                bool palindrome = false;
-                for(i=start;i<end/2;i++){
-                    if(s[i]==s[end-i-1]){
-                        palindrome = true;
-                        len++;
-                    } else{
-                        palindrome = false;
-                        break;
-                    }
+        string ans;
+        
+        int maxlen = 0;
+        for(int i=0;i<s.size();i++){
+            string str;
+            for(int j=i+1;j<=s.size();j++){
+                int len = 1;
+                str = s.substr(i,(j-i));
+                if(checkPalindrome(str)==true){ 
+                    len = str.size();
                 }
-                start++;
-            }
-        }
-        */
-
-        int n = s.size();
-        int maxLen = 1;
-        int startIndex = 0;
-
-        for(int l=n;l>0;l--) { 
-            for(int start=0;start+l<=n;start++) {
-                int end = start + l - 1;
-                bool palindrome = true;
-
-                for(int i=0;i<l/2;i++) {
-                    if(s[start+i] != s[end-i]) {
-                        palindrome = false;
-                        break;
-                    }
-                }
-
-                if(palindrome && l>maxLen) {
-                    maxLen = l;
-                    startIndex = start;
+                if(len>maxlen){
+                    maxlen = len;
+                    ans = str;
                 }
             }
         }
 
-        return s.substr(startIndex, maxLen);
+        return ans;
+    */
+
+        int n = s.size();
+        if (n<=1) return s;
+
+        int start = 0, maxLen = 1;
+
+        auto expand = [&](int l, int r) {
+            while (l>=0 && r<n && s[l]==s[r]){
+                if (r-l+1>maxLen){
+                    start = l;
+                    maxLen = r-l+1;
+                }
+                --l; 
+                ++r;
+            }
+        };
+
+        for (int i=0; i<n; i++) {
+            expand(i, i);     
+            expand(i, i+1); 
+        }
+
+        return s.substr(start, maxLen);
     }
 };
