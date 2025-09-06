@@ -1,6 +1,17 @@
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
+        //Brute
+        
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==target) return i;
+        }
+
+        return -1;
+
+
+        //Binary Search
+        /*
         int n = nums.size();
         int low = 0, high = n-1;
 
@@ -16,5 +27,6 @@ public:
         }
 
         return -1;
+        */
     }
 };
