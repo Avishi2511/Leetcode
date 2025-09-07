@@ -1,12 +1,16 @@
 class Solution {
 public:
     int maximumCandies(vector<int>& candies, long long k) { 
+        //long long sum = accumulate(candies.begin(), candies.end(), 0);
+        int maxm = *max_element(candies.begin(), candies.end());
+        
         long long sum = 0;
-        int maxm = INT_MIN;
         for(int i=0;i<candies.size();i++){
             sum += candies[i];
-            maxm = max(maxm,candies[i]);
+            //maxm = max(maxm,candies[i]);
         }
+        
+
         if(sum<k) return 0;
 
         int low = 1, high = maxm;
