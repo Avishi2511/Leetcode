@@ -23,18 +23,13 @@ public:
         return 1+min(ldepth,rdepth);
         */
 
-        if(root == NULL)
-        return 0;  // NULL node depth is 0
+        if(root == NULL) return 0; 
 
-    if(root->left == NULL && root->right == NULL)
-        return 1;  // leaf node depth is 1
+        if(root->left == NULL && root->right == NULL) return 1;  
 
-    if(root->left == NULL)
-        return 1 + minDepth(root->right);  // only right path exists
+        int ldepth = (root->left) ? minDepth(root->left) : INT_MAX;
+        int rdepth = (root->right) ? minDepth(root->right) : INT_MAX;
 
-    if(root->right == NULL)
-        return 1 + minDepth(root->left);   // only left path exists
-
-    return 1 + min(minDepth(root->left), minDepth(root->right));  // both paths exist
+        return 1 + min(ldepth, rdepth); 
     }
 };
