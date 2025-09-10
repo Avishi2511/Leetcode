@@ -27,8 +27,11 @@ public:
 
         if(root->left == NULL && root->right == NULL) return 1;  
 
-        int ldepth = (root->left) ? minDepth(root->left) : INT_MAX;
-        int rdepth = (root->right) ? minDepth(root->right) : INT_MAX;
+        int ldepth,rdepth;
+        if((root->left)) ldepth = minDepth(root->left);
+        else ldepth = INT_MAX;
+        if(root->right) rdepth = minDepth(root->right);
+        else rdepth = INT_MAX;
 
         return 1 + min(ldepth, rdepth); 
     }
