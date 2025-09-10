@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    
+    /*
     int height(TreeNode* root){
         if(root==NULL) return 0;
         return 1+max(height(root->left), height(root->right));
@@ -24,12 +24,7 @@ public:
         return isBalanced(root->left) && isBalanced(root->right);
         
     }
-    
-
-
-
-
-    /*
+    */
 
     int height(TreeNode* root){
         if(root==NULL) return 0;
@@ -43,10 +38,6 @@ public:
 
         return (isBalanced(root->left) && isBalanced(root->right));
     }
-
-    */
-
-
 
 
 };
