@@ -26,6 +26,7 @@ public:
             TreeNode *node = q.front();
             q.pop();
 
+            //do not use the condition if(node==subRoot), the condition will never satisfy
             if(checkSameTree(node,subRoot)) return true;
 
             if(node->left!=NULL) q.push(node->left);
