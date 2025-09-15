@@ -11,8 +11,15 @@
  */
 class Solution {
 public:
+    int dfs(TreeNode* root){
+        if(root==NULL) return 0;
+        return dfs(root->left) + dfs(root->right) + 1;
+    }
     int countNodes(TreeNode* root) {
 
+        return dfs(root);
+        // with level order traversal (low complexity)
+        /* 
         if(root==NULL) return 0;
         
         queue<TreeNode *> q;
@@ -29,5 +36,6 @@ public:
         }
 
         return count;
+        */
     }
 };
