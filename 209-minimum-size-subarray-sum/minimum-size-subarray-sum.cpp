@@ -19,6 +19,7 @@ public:
         return minLen;
         */
 
+        /*
         int sum = 0, len = 0;
         int minLen = INT_MAX;
         int l = 0, r = 0;
@@ -31,12 +32,29 @@ public:
                 sum -= nums[l];
                 l++;
             }
-            
+
             r++;
         }
 
         if(minLen == INT_MAX) return 0;
         return minLen;
-        
+        */
+
+
+        int n = nums.size();
+        int l = 0, sum = 0;
+        int minLen = INT_MAX;
+
+        for (int r = 0; r<n; r++) {
+            sum += nums[r];
+
+            while (sum >= target) {
+                minLen = min(minLen, r-l+1);
+                sum -= nums[l++];
+            }
+        }
+
+        return (minLen == INT_MAX) ? 0 : minLen;
+            
     }
 };
