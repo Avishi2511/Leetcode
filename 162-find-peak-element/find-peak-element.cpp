@@ -33,6 +33,7 @@ public:
         return low;
         */
 
+        /*
         int n = nums.size();
         if(n==0 || n==1) return 0;
 
@@ -44,8 +45,19 @@ public:
         }
 
         return 0;
+        */
 
+        int n = nums.size();
+        int h = n-1, l=0;
 
+        while(l<h){
+            int mid = (l+h)/2;
+
+            if(nums[mid] < nums[mid+1]) l = mid+1;
+            else h = mid;
+        }
+
+        return l;
 
     }
 };
