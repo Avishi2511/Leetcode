@@ -20,9 +20,12 @@ public:
         */
 
 
-        if(root==NULL) return 0;
+
+        if(root==NULL) return NULL;
         int leftMax = maxDepth(root->left);
         int rightMax = maxDepth(root->right);
-        return 1+max(leftMax, rightMax);
+        return 1+max(leftMax,rightMax);
+
+       
     }
 };
